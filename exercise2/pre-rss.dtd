@@ -1,0 +1,64 @@
+<!--================================================================-->
+<!--                                                                -->
+<!--                      The Caml Web Site                         -->
+<!--                                                                -->
+<!--      Vincent Simonet, projet Cristal, INRIA Rocquencourt       -->
+<!--                                                                -->
+<!-- Copyright 2004 Institut National de Recherche en Informatique  -->
+<!-- et en Automatique.  All rights reserved.                       -->
+<!--                                                                -->
+<!--================================================================-->
+
+<!--
+
+<!DOCTYPE page PUBLIC
+   "-//CamlWebSite//DTD CamlWebSite pre-rss//EN"
+   "http://caml.inria.fr/dtd/pre-rss.dtd">
+
+-->
+
+<!ENTITY % FieldContent "(#PCDATA | fr | en)*">
+
+<!ELEMENT fr %FieldContent;>
+<!ELEMENT en %FieldContent;>
+
+<!ELEMENT rss (channel)*>
+<!ATTLIST rss version CDATA #REQUIRED>
+<!ELEMENT channel (title|link|description|language|copyright|managingEditor|
+webMaster|pubDate|lastBuildDate|category|generator|docs|cloud|ttl|image
+|textInput|skipHours|skipDays|item)*>
+<!ELEMENT title %FieldContent;>
+<!ELEMENT link %FieldContent;>
+<!ELEMENT description %FieldContent;>
+<!ELEMENT language %FieldContent;>
+<!ELEMENT copyright %FieldContent;>
+<!ELEMENT managingEditor %FieldContent;>
+<!ELEMENT webMaster %FieldContent;>
+<!ELEMENT pubDate %FieldContent;>
+<!ELEMENT lastBuildDate %FieldContent;>
+<!ELEMENT generator %FieldContent;>
+<!ELEMENT docs %FieldContent;>
+<!ELEMENT cloud %FieldContent;>
+<!ELEMENT ttl %FieldContent;>
+<!ELEMENT image (url|title|link|width|height|description)*>
+<!ELEMENT url %FieldContent;>
+<!ELEMENT width %FieldContent;>
+<!ELEMENT height %FieldContent;>
+<!ELEMENT textInput (title|description|name|link)*>
+<!ELEMENT name %FieldContent;>
+<!ELEMENT skipHours %FieldContent;>
+<!ELEMENT skipDays %FieldContent;>
+<!ELEMENT item
+(title|link|description|author|category|comments|enclosure|guid|pubDate|source)+>
+<!ELEMENT author %FieldContent;>
+<!ELEMENT category %FieldContent;>
+<!ATTLIST category domain CDATA #IMPLIED>
+<!ELEMENT comments %FieldContent;>
+<!ELEMENT enclosure %FieldContent;>
+<!ATTLIST enclosure url CDATA #REQUIRED>
+<!ATTLIST enclosure length CDATA #REQUIRED>
+<!ATTLIST enclosure type CDATA #REQUIRED>
+<!ELEMENT guid %FieldContent;>
+<!ATTLIST guid isPermaLink CDATA #IMPLIED>
+<!ELEMENT source %FieldContent;>
+<!ATTLIST source url CDATA #REQUIRED>
