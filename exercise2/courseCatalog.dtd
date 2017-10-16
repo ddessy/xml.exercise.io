@@ -17,5 +17,5 @@
 <!ELEMENT Instructors ((Lecturer, Professor*) | (Professor+, Lecturer?))>
 <!ELEMENT Prerequisites (Prereq+)>
 <!ELEMENT Course_Catalog (Department+)>
-<!ATTLIST Course_Catalog Year CDATA #FIXED Year="2017-2018">
+<!ATTLIST Course_Catalog Year CDATA #FIXED "2017-2018">
 <!ELEMENT Middle_Initial (#PCDATA)>

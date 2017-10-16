@@ -37,8 +37,8 @@
 				<div class="w3-panel round-bottom w3-pale-grey w3-border w3-border-blue">
 					<p> За реализация на това упражнения могат да бъдат използвани някои от следните инструменти:</p>
 					<ul class="checked">
-					    <li><a href="https://www.xmlvalidation.com/">XML validator</a></li>
-						<li><a href="https://validator.w3.org/#validate_by_upload+with_options" target="_blank">W3 XML validator</a></li>
+					    <li><a href="https://www.xmlvalidation.com/" target="_blank">XML validator (с налична поддръжка на вътрешен и външен DTD документ)</a></li>
+						<li><a href="https://validator.w3.org/#validate_by_upload+with_options" target="_blank">W3 XML validator (с налична поддръжка само на вътрешен DTD документ)</a></li>
 						<li>XML/DTD валидатора наличен в Eclipse</li>
 					</ul>
 				</div>
@@ -49,15 +49,15 @@
 		<!--Start task1-->
 			<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 1: Свържете и валидирайте дадения по-долу XML документ с дадената DTD граматика по следните 2 начина:</h4>
+					<h4>Задача 1: Свържете и валидирайте дадения по-долу XML файл с дадения DTD документ по следните 2 начина:</h4>
 					<ul>
-						<li>С вътрешно DTD</li>
-						<li>С външно DTD</li>
+						<li>С вътрешен DTD</li>
+						<li>С външен DTD</li>
 					</ul>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 					<li>
-					    &lt;?xml	version=&quot;1.0&quot;?&gt;	                          <br>
+					    &lt;?xml version=&quot;1.0&quot;?&gt;	                          <br>
 						&lt;shiporder orderid=&quot;889923&quot;&gt;	                      <br>
 							&nbsp;&nbsp;&nbsp;&lt;orderperson&gt;John Smith&lt;/orderperson&gt;	          <br>
 							&nbsp;&nbsp;&nbsp;&lt;shipto&gt;	                                                      <br>
@@ -101,15 +101,15 @@
 					  <a onclick="showSolution('insrtuction1')" href="javascript:void(0)" style="text-decoration:none;color:white">Упътване</a>
 					</li>
 					<li id="insrtuction1" class="w3-hide w3-container">
-					    Синтаксис за включване на външна DTD граматика: &lt;!DOCTYPE root-element SYSTEM "file-name"&gt; <br>
-						Синтаксис за включване на вътрешна DTD граматика: &lt;!DOCTYPE root-element [element-declarations]&gt; 
+					    Синтаксис за включване на външен DTD документ: &lt;!DOCTYPE root-element SYSTEM "file-name"&gt; <br>
+						Синтаксис за включване на вътрешен DTD документ: &lt;!DOCTYPE root-element [element-declarations]&gt; 
 				    </li>
 					<li class="w3-padding-16 w3-green">
 					    <a onclick="showSolution('solution1')" href="javascript:void(0)" style="text-decoration:none;color:white">Решение</a>
 					</li>
 				</ul>
 				<div id="solution1" class="w3-hide w3-container" style="background-color: #e0e3e6;">
-					А) XML с вътрешно dtd:                                                  <br>
+					А) XML с вътрешен DTD:                                                  <br>
 					&lt;?xml	version=&quot;1.0&quot;?&gt;	                                    <br>
 						&lt;!DOCTYPE	shiporder[	                                                    <br>
 						&lt;!ELEMENT	shiporder	(orderperson,shipto,item+)&gt;	                    <br>
@@ -146,7 +146,7 @@
 							&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&lt;price&gt;9.90&lt;/price&gt;	                                      <br>
 							&nbsp;&nbsp;&nbsp;&lt;/item&gt;	                                                      <br>
 						&lt;/shiporder&gt;	<br><br>
-					Б) XML с външно dtd:                                                    <br>
+					Б) XML с външен DTD:                                                    <br>
 					&lt;?xml version=&quot;1.0&quot;?&gt;                                   <br>
 					&lt;!DOCTYPE shiporder SYSTEM &quot;shiporder.dtd&quot;&gt;                       <br>
 					&lt;shiporder orderid=&quot;889923&quot;&gt;	                      <br>
@@ -189,7 +189,7 @@
 		<!--Start task2-->
 			<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 2: За дадения по-долу XML документ създайте DTD граматика и го валидирайте спрямо нея.</h4>
+					<h4>Задача 2: За дадения по-долу XML файл създайте DTD документ и го валидирайте спрямо него.</h4>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 					<li>
@@ -239,7 +239,7 @@
 		<!--Start task3-->
 			<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 3: За дадената по-долу DTD граматика създайте XML документ и го валидирайте спрямо нея.</h4>
+					<h4>Задача 3: За дадения по-долу DTD документ създайте XML файл и го валидирайте спрямо нея.</h4>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 					<li>
@@ -487,20 +487,26 @@
 		<!--Start task4-->
 			<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 4: За DTD граматиката, намираща се на адрес: http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd, създайте XML документ. Включете в XML документа дадената DTD граматика като публична и го валидирайте спрямо нея.</h4>
+					<h4>Задача 4: За DTD документ, намираща се на адрес: <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" target="_blank">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>, създайте XML файл. Включете в XML файла дадения DTD документ като публичен и го валидирайте спрямо нея с W3 XML validator.</h4>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 					<li class="w3-padding-16 w3-blue">
 					  <a onclick="showSolution('insrtuction4')" href="javascript:void(0)" style="text-decoration:none;color:white">Упътване</a>
 					</li>
 					<li id="insrtuction4" class="w3-hide w3-container">
-					    Синтаксис за включване на публична външна DTD граматика: &lt;!DOCTYPE rootname PUBLIC FPI URL&gt; <br>
+					    Синтаксис за включване на публичен външен DTD документ: &lt;!DOCTYPE rootname PUBLIC FPI URL&gt; <br>
 						Пример: <br>
 						 &lt;?xml version=&quot;1.0&quot; &quot;?&gt;                                                   <br>
 						 &lt;!DOCTYPE rss PUBLIC &quot;-//RSS//DTD RSS 0.91//EN&quot; &quot;http://rss.com/publish/formats/rss-0.91.dtd&quot;&gt;                           <br>
 						 &lt;rss version=&quot;0.91&quot;&gt;                                                           <br>
 						 &lt;channel&gt; ...... &lt;/channel&gt;                                                        <br>
-						 &lt;/rss&gt; 
+						 &lt;/rss&gt; <br>
+						 A Formal Public Identifier (FPI) is a short piece of specially formatted text that may be used to uniquely identify a product, specification or document.<br>
+						 An FPI is made up of 4 fields, each separated by double forward slashes (//): field 1//field 2//field 3//field 4<br>
+						 field 1 - Indicates whether the DTD is connected to a formal standard or not. If the DTD hasn't been approved (for example, you've defined the DTD yourself), use a hypen (-). If the DTD has been approved by a nonstandards body, use a plus sign "+". If the DTD has been approved by a formal standards body this field should be a reference to the standard itself.<br>
+						 field 2 - Holds the name of the group (or person) responsible for the DTD. The above example is maintained by the W3C, so "W3C" appears in the second field.<br>
+						 field 3 - Indicates the type of document that is being described. <br>
+						 field 4 - Specifies the language that the DTD uses
 				    </li>
 					<li class="w3-padding-16 w3-green">
 					    <a onclick="showSolution('solution4')" href="javascript:void(0)" style="text-decoration:none;color:white">Решение</a>
@@ -509,7 +515,7 @@
 				<div id="solution4" class="w3-hide w3-container" style="background-color: #e0e3e6;">
 					&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;                                                                                                 <br>
 					&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;              <br>
-					&lt;html&gt;                                                                                                                                                     <br>
+					&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;                                                                                                                                                     <br>
 						&nbsp;&nbsp;&nbsp;&lt;head&gt;                                                                                                                                                <br>
 						&nbsp;&nbsp;&nbsp;	&nbsp;&nbsp;&nbsp;&lt;title&gt;text&lt;/title&gt;                                                                                                                          <br>
 						&nbsp;&nbsp;&nbsp;&lt;/head&gt;                                                                                                                                               <br>
@@ -521,7 +527,7 @@
 		<!--Start task5-->
 			<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 5: За дадената по-долу схема създайте DTD граматика и XML документ и го валидирайте спрямо нея. DTD граматиката трябва да изпълнява следните условия: </h4>
+					<h4>Задача 5: За дадената по-долу схема създайте DTD документ и XML файл и го валидирайте спрямо нея. DTD документът трябва да изпълнява следните условия: </h4>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 				    <li>
@@ -587,7 +593,7 @@
 								&nbsp;&nbsp;&nbsp;&lt;description&gt;Description of the channel&lt;/description&gt;                               <br>
 							&lt;/channel&gt;<br><br>
 						</li>
-						<li><a href="channel.dtd" target="_blank">DTD граматика:</a><br>
+						<li><a href="channel.dtd" target="_blank">DTD документ:</a><br>
 							&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;                                                                                                          <br>
 							&lt;!ELEMENT url (#PCDATA)&gt;                                                                                                                                            <br>
 							&lt;!ELEMENT item ((title, link, description?) | (description?, title, link) | (description?, link, title) | (title, description?, link) | (link, title, description?) | <(link, description?, title) )&gt;<br>
@@ -606,7 +612,7 @@
 		<!--Start task6-->
 		<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 6: Съставете DTD граматика, която позволява да бъдат представени в XML документ резултатите от футболните мачове и включва следната информация: </h4>
+					<h4>Задача 6: Съставете DTD документ и XML файл отразяващ резултатите от футболните мачове и включващ следната информация: </h4>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 				   <li>
@@ -678,7 +684,7 @@
 						1. Една вътрешна (System) и една външна декларация (Public) на DTD нотация за някои от MIME типовете image/jpeg, image/png или image/gif. След това да се декларира entity използващо тези 2 нотации
 					</li>
 					<li>
-						2. Общо entity задаващо стойността на елемента link на image
+						2. Общо entity задаващо стойността на под-елемента link на елемента image
 					</li>
 					<li>
 						3. Параметризирано entity със стойност "title" и да се използва навсякъде където тази дума се среща в DTD файла
@@ -769,11 +775,11 @@
 		<!--Start task8-->
 		<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 8: За по-долу дадения XML документ и схема да се създаде DTD граматика, в която са налични: </h4>
+					<h4>Задача 8: За по-долу дадения XML файл и схема да се създаде DTD документ, в която са налични: </h4>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 				    <li>
-						1. ID и IDREF, за атрибутите при които това е необходимо (напр. за InstrID, Code, Instructors)
+						1. ID, IDREF и IDREFS, за атрибутите при които това е необходимо (напр. за InstrID, Code, Instructors)
 					</li>
 					<li>
 						2. #REQUIRED, за атрибутите при които това е необходимо (напр. за Number)
@@ -1070,7 +1076,7 @@
 		<!--Start task9-->
 		<div class="w3-card-2 w3-margin">
 				<div class="w3-container w3-padding">
-					<h4>Задача 9: Използвайки параметрични entity и условни секции, декларирайте по-долу описаните 2 варианта за елемента channel в DTD граматиката от задача 6. Включете/Изключете всеки един от двата варианта и направете съответните промени в XML документа </h4>
+					<h4>Задача 9: Използвайки параметрични entity и условни секции, декларирайте по-долу описаните 2 варианта за елемента channel в DTD документ от задача 6. Включете/Изключете всеки един от двата варианта и направете съответните промени в XML файла </h4>
 				</div>
 				<ul class="w3-ul w3-hoverable w3-white">
 					<li>
@@ -1084,12 +1090,12 @@
 					</li>
 					<li id="insrtuction9" class="w3-hide w3-container">
 					    <ol>
-					        <li>DTD граматиките дават възможност да бъдат включвани и изключвани дадени декларации от тях, чрез условните секции. Ключовата дума INCLUDE специфицира декларации, които са включени в DTD граматиката, а ключовата дума IGNORE обратното.</li>
+					        <li>DTD документите дават възможност да бъдат включвани и изключвани дадени декларации от тях, чрез условните секции. Ключовата дума INCLUDE специфицира декларации, които са включени в DTD документа, а ключовата дума IGNORE обратното.</li>
 						    <li>Синтаксис: &lt;![ IGNORE [DTD Declarations]]&gt;; &lt;![ INCLUDE [DTD Declarations]]&gt;</li>
 						    <li>Обикновено условните секции се използват в комбинация с параметризирани entity по следния начин: <br>
 						        &lt;!ENTITY % ignoredPart "IGNORE"&gt;<br>
 						        &lt;![%ignoredPart;[&lt;!ELEMENT element (sub-element1*, sub-element2, sub-element3)&gt;]]&gt;</li>
-						    <li>Условните секции могат да бъдат използвани само във външна DTD граматика</li>
+						    <li>Условните секции могат да бъдат използвани само във външен DTD документ</li>
 						</ol>
 				    </li>					
 					<li class="w3-padding-16 w3-green">
