@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Task2.xsd">
+<bank xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Task2_2.xsd">
 	<accounts>
 		<saving_accounts>
 			<saving_account id="a1" interest="0.03">
@@ -36,10 +36,10 @@
 		</customer>
 	</customers>
 	<customer_accounts>
+		<customer_account c_id="c1" ac_id="a1"/>
 		<customer_account c_id="c1" ac_id="a2"/>
-		<customer_account c_id="c1" ac_id="a3"/>
 		<customer_account c_id="c2" ac_id="a4"/>
 		<customer_account c_id="c3" ac_id="a1"/>
-		<customer_account c_id="c3" ac_id="a5"/>
+		<customer_account c_id="c3" ac_id="a2"/>
 	</customer_accounts>
 </bank>
