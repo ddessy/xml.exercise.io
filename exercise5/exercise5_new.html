@@ -25,14 +25,28 @@
 				</div>
 				<div class="w3-panel round-bottom w3-pale-grey w3-border w3-border-blue">
 					<ul>
-						<li>Използване на основни функции на XSLT</li>
+						<li>Използване на следните основни функции на XSLT:</li>
+						<ol>
+							<li>&lt;xsl:if&gt;</li>
+							<li>&lt;xsl:choose&gt;</li>
+							<li>&lt;xsl:sort&gt;</li>
+							<li>&lt;xsl:variable&gt;, &lt;xsl:param&gt;</li>
+							<li>&lt;xsl:apply-templates&gt;, &lt;xsl:call-template&gt;, &lt;xsl:with-param&gt;</li>
+							<li>&lt;xsl:element&gt;, &lt;xsl:attribute&gt;</li>
+							<li>&lt;xsl:import&gt;, &lt;xsl:include&gt;</li>
+						</ol>
 					</ul>
 					</div>
 				<div class="w3-panel w3-blue round-top">
 					<h3>Средства за обработка на XSLT:</h3>
 				</div>
 				<div class="w3-panel round-bottom w3-pale-grey w3-border w3-border-blue">
-					<p> За реализация на това упражнения използвайте браузер с вграден XSLT процесор като например Internet Explorer или Mozilla Firefox</p>
+					<p> За реализация на това упражнения може да използвате някои от следните инструменти:</p>
+					<ul class="checked">
+						<li>Браузер с вграден XSLT процесор като например Internet Explorer или Mozilla Firefox</li>
+						<li><a href="http://xslttest.appspot.com/" target="_blank">http://xslttest.appspot.com/</a></li>
+						<li><a href="https://www.freeformatter.com/xsl-transformer.html" target="_blank">https://www.freeformatter.com/xsl-transformer.html</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -674,6 +688,118 @@
 				</div>
 			</div>
 		    <!--End task11-->
+			<!--Start task12-->
+			<div class="w3-card-2 w3-margin">
+				<div class="w3-container w3-padding">
+					<h4>Задача 12: Създайте XSL шаблони, селектиращи стойността на елемента title и стойността на елемента year, в 2 отделни XSL документa - съответно title.xsl и year.xsl. Включете  шаблоните от така създадените нови XSL документи, като използвате &lt;xsl:include&gt; (за един от двата XSL документa) и &lt;xsl:import&gt; (за другия XSL документ) в трети XSL документ - all.xsl, селектиращ стойностите на елемента track с/без неговите атрибути, и: </h4>
+				</div>
+				<ul class="w3-ul w3-hoverable w3-white">
+					<li>1. Извикайте двата шаблона за елементите title и year от title.xsl и year.xsl в третия XSL документ - all.xsl, така че да получите същия резултат като в задача 11</li>
+					<li>2. В XSL документа all.xsl, също дефинирайте шаблони за елементите title и year, които изпечатват различен резултат от този в другите 2 XSL документа (напр. Title: TITLE_VALUE, вместо само TITLE_VALUE).</li>
+					<li>3. Разгледайте кой шаблон ще се приложи взависимост от това как са включени (чрез &lt;xsl:include&gt; или чрез &lt;xsl:import&gt;) title.xsl и year.xsl в all.xsl и къде се намира дефиницията на шаблоните за title и year в all.xsl (преди или след &lt;xsl:include&gt; и &lt;xsl:import&gt;)</li>
+					<li>4. Съставете XSL функция, която за даден текст (подаден като параметър) връща неговата дължина и я извикайте в един от шаблоните разпечатващи стойностите на елемента track</li>
+					<li class="w3-padding-16 w3-blue">
+					  <a onclick="showSolution('insrtuction12')" href="javascript:void(0)" style="text-decoration:none;color:white">Упътване</a>
+					</li>
+					<li id="insrtuction12" class="w3-hide w3-container">
+					    За изпълнение на условие 4. използвайте някои от следните два XSLT процесора: <a href="http://xslttest.appspot.com/" target="_blank">http://xslttest.appspot.com/</a> или <a href="https://www.freeformatter.com/xsl-transformer.html" target="_blank">https://www.freeformatter.com/xsl-transformer.html</a>
+				    </li>
+					<li class="w3-padding-16 w3-green">
+						<a onclick="showSolution('solution12')" href="javascript:void(0)" style="text-decoration:none;color:white">Решение</a>
+					</li>
+				</ul>
+				<div id="solution12" class="w3-hide w3-container" style="background-color: #e0e3e6;">
+					title.xsl:<br><br>
+					&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+					<br>&lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; &gt; 
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;cd/title&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of select=&quot;text()&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&lt;/xsl:stylesheet&gt;
+					<br><br>
+					year.xsl: <br><br>
+					&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+					<br>&lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; &gt; 
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;cd/year&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of select=&quot;text()&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&lt;/xsl:stylesheet&gt;
+					<br><br>
+					all.xsl: <br><br>
+					&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+					<br>&lt;xsl:stylesheet version=&quot;2.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:local=&quot;local&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt; 
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:import href=&quot;year.xsl&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;/&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;html&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Tatu Catalog&lt;/title&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Tatu Catalog&lt;/h2&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;table border=&quot;2&quot; cellspacing=&quot;0px&quot; cellpadding=&quot;5px&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;thead&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;CD Title&lt;/th&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Year&lt;/th&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Tracks without atributes&lt;/th&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Tracks with atributes&lt;/th&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/thead&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tbody valign=&quot;top&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates select=&quot;catalog&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tbody&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/table&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/html&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;cd&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates select=&quot;title&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates select=&quot;year&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ol&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates select=&quot;tracklist/track&quot; mode=&quot;withoutAttributes&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ol&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ol&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates select=&quot;tracklist/track&quot; mode=&quot;withAttributes&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ol&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;catalog/cd/tracklist/track&quot; mode=&quot;withAttributes&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates select=&quot;text()&quot;/&gt; 
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:for-each select=&quot;@*&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;br/&gt;&lt;i&gt;Atribute name:&lt;/i&gt;&lt;xsl:value-of select=&quot;name()&quot;/&gt; - &lt;i&gt;atribute value:&lt;/i&gt; &lt;xsl:value-of select=&quot;.&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xsl:for-each&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;catalog/cd/tracklist/track&quot; mode=&quot;withoutAttributes&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:apply-templates select=&quot;text()&quot;/&gt; - &lt;xsl:value-of select=&quot;local:test(text())&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;cd/year&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Year: &lt;xsl:value-of select=&quot;text()&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:template match=&quot;cd/title&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title: &lt;xsl:value-of select=&quot;text()&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:template&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:include href=&quot;title.xsl&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;xsl:function name=&quot;local:test&quot; as=&quot;xs:string&quot;&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:param name=&quot;text&quot;&gt;&lt;/xsl:param&gt;
+					<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xsl:value-of select=&quot;string-length($text)&quot;/&gt;
+					<br>&nbsp;&nbsp;&nbsp;&lt;/xsl:function&gt;
+					<br>&lt;/xsl:stylesheet&gt;
+				</div>
+			</div>
+		    <!--End task12-->
 		</div>
 		<!--End tasks-->  
 	</div>

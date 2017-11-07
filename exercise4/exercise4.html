@@ -303,8 +303,8 @@
 				<ul class="w3-ul w3-hoverable w3-white">
 					<li>
 						1. Селектиращ всички стойности на елемента track, който е под-елемент на tracklist, имащ атрибут num равен на 1. <br>
-						2. Подредете резултата от 1. по азбучен ред <br>
-						3. Подредете резултата от 1. в обратен азбучен ред
+						&nbsp;&nbsp;&nbsp;А. Подредете резултата от 1. по азбучен ред <br>
+						&nbsp;&nbsp;&nbsp;Б. Подредете резултата от 1. в обратен азбучен ред
 					</li>
 					<li>
 						2. Създаващ следната структура:<br>
@@ -330,24 +330,24 @@
 				</ul>
 				<div id="solution3" class="w3-hide w3-container" style="background-color: #e0e3e6;">
 				    <ol>
-					<li><ul><li>Примерно решение 1 (http://videlibri.sourceforge.net/cgi-bin/xidelcgi):<br>
-							for $o in catalog/cd/tracklist<br>
-							where $o/@num = "1"<br>
-							return $o/track/text()<br>
+						<li><ul><li>Примерно решение 1 (http://videlibri.sourceforge.net/cgi-bin/xidelcgi):<br>
+								for $o in catalog/cd/tracklist<br>
+								where $o/@num = "1"<br>
+								return $o/track/text()<br>
+							</li>
+							<li>Примерно решение 2 (http://videlibri.sourceforge.net/cgi-bin/xidelcgi):<br>
+								for $o in catalog/cd<br>
+								let $l :=$o/tracklist<br>
+								where $l/@num = "1"<br>
+								return $l/track
+							</li>
+							<li>	Примерно решение 3 (http://videlibri.sourceforge.net/cgi-bin/xidelcgi):<br>
+								for $o in catalog/cd/tracklist[@num = "1"]/track<br>
+								order by $o ascending/descending<br>
+								return $o/text()
+							</li>
+							</ul>
 						</li>
-						<li>Примерно решение 2 (http://videlibri.sourceforge.net/cgi-bin/xidelcgi):<br>
-							for $o in catalog/cd<br>
-							let $l :=$o/tracklist<br>
-							where $l/@num = "1"<br>
-							return $l/track
-						</li>
-					    <li>	Примерно решение 3 (http://videlibri.sourceforge.net/cgi-bin/xidelcgi):<br>
-							for $o in catalog/cd/tracklist[@num = "1"]/track<br>
-							order by $o ascending/descending<br>
-							return $o/text()
-						</li>
-						</ul>
-					</li>
 					    <li>
 							<ul>
 								<li>Примерно решение 1 (http://videlibri.sourceforge.net/cgi-bin/xidelcgi):<br>
